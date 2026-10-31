@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letraska · Aprende el abecedario con Alaska</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a class="logo" href="#inicio" aria-label="Letraska"><span>L</span><span>e</span><span>t</span><span>r</span><span>a</span><span>s</span><span>k</span><span>a</span></a>
+    <nav class="menu">
+      <a href="#inicio" class="activo">Inicio</a>
+      <a href="#letras">Letras</a>
+      <a href="#practica">Práctica</a>
+      <a href="#equipo">El equipo</a>
+    </nav>
+    <div class="progreso">Letras vistas: <span id="contador">0</span> de 26</div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="cielo" aria-hidden="true">
+      <img class="nube" src="img/nube-5.png" alt="" style="--w:190px;top:50%;--t:70s;--d:-20s">
+      <img class="nube" src="img/nube-9.png" alt="" style="--w:150px;top:57%;--t:55s;--d:-45s">
+      <img class="nube" src="img/nube-4.png" alt="" style="--w:220px;top:46%;--t:90s;--d:-65s">
+    </div>
+
+    <div class="hero-contenido">
+      <div class="estrellas" data-estrellas="12"></div>
+      <h1 data-anim>Aprende el abecedario con Alaska</h1>
+      <p class="subtitulo">26 letras, una husky de ojos de colores y muchas sorpresas.</p>
+      <a class="boton-negro" href="#letras">Ver las letras</a>
+    </div>
+
+    <img class="escena" src="img/escena.svg" alt="">
+    <svg class="corazon" viewBox="0 0 64 60" aria-hidden="true"><path d="M32 58 C8 40 2 26 2 17 C2 8 9 2 17 2 C24 2 29 6 32 12 C35 6 40 2 47 2 C55 2 62 8 62 17 C62 26 56 40 32 58Z" fill="#ff6b3d"/></svg>
+    <div class="alaska alaska-hero">
+      <div class="alaska-flip">
+        <div class="alaska-saltito">
+          <img class="a-cuerpo" src="img/alaska-cuerpo.png" alt="Alaska, la husky de Letraska">
+          <div class="a-cola"></div>
+          <div class="a-mano"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letras" id="letras">
+    <div class="cielo" aria-hidden="true">
+      <img class="nube" src="img/nube-8.png" alt="" style="--w:280px;top:8%;--t:70s;--d:-10s">
+      <img class="nube" src="img/nube-3.png" alt="" style="--w:200px;top:22%;--t:55s;--d:-40s">
+      <img class="nube" src="img/nube-7.png" alt="" style="--w:340px;top:40%;--t:90s;--d:-60s">
+      <img class="nube" src="img/nube-2.png" alt="" style="--w:220px;top:58%;--t:65s;--d:-25s">
+      <img class="nube" src="img/nube-6.png" alt="" style="--w:300px;top:72%;--t:80s;--d:-5s">
+      <img class="nube" src="img/nube-1.png" alt="" style="--w:180px;top:86%;--t:50s;--d:-35s">
+    </div>
+
+    <div class="letras-contenido">
+      <div class="estrellas" data-estrellas="8"></div>
+      <h2 data-anim>Toca una letra para darle la vuelta</h2>
+
+      <div class="filtros revela">
+        <button class="activo" data-filtro="todas" onclick="filtrar('todas')">Todas</button>
+        <button data-filtro="vocales" onclick="filtrar('vocales')">Vocales</button>
+      </div>
+
+      <div class="galeria">
+        <div class="card revela" data-tipo="vocal" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="A">A</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="img/alaska-personaje.png" alt="Alaska">
+            <h3>Alaska</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="B">B</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f433.svg" alt="Ballena">
+            <h3>Ballena</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="C">C</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3e0.svg" alt="Casa">
+            <h3>Casa</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="D">D</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3b2.svg" alt="Dado">
+            <h3>Dado</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="vocal" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="E">E</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f418.svg" alt="Elefante">
+            <h3>Elefante</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="F">F</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f353.svg" alt="Fresa">
+            <h3>Fresa</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="G">G</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f431.svg" alt="Gato">
+            <h3>Gato</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="H">H</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f366.svg" alt="Helado">
+            <h3>Helado</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="vocal" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="I">I</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3dd.svg" alt="Isla">
+            <h3>Isla</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="J">J</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f992.svg" alt="Jirafa">
+            <h3>Jirafa</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="K">K</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f95d.svg" alt="Kiwi">
+            <h3>Kiwi</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="L">L</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f319.svg" alt="Luna">
+            <h3>Luna</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="M">M</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f34e.svg" alt="Manzana">
+            <h3>Manzana</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="N">N</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2744.svg" alt="Nieve">
+            <h3>Nieve</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="vocal" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="O">O</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f43b.svg" alt="Oso">
+            <h3>Oso</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="P">P</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f436.svg" alt="Perro">
+            <h3>Perro</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="Q">Q</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9c0.svg" alt="Queso">
+            <h3>Queso</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="R">R</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f42d.svg" alt="Ratón">
+            <h3>Ratón</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="S">S</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2600.svg" alt="Sol">
+            <h3>Sol</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="T">T</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f422.svg" alt="Tortuga">
+            <h3>Tortuga</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="vocal" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="U">U</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f347.svg" alt="Uva">
+            <h3>Uva</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="V">V</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f42e.svg" alt="Vaca">
+            <h3>Vaca</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="W">W</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9c7.svg" alt="Waffle">
+            <h3>Waffle</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="X">X</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3b6.svg" alt="Xilófono">
+            <h3>Xilófono</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="Y">Y</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1fa80.svg" alt="Yoyó">
+            <h3>Yoyó</h3>
+          </div>
+        </div>
+        <div class="card revela" data-tipo="consonante" onclick="voltear(this)">
+          <div class="card-frente">
+            <h1 data-letra="Z">Z</h1>
+          </div>
+          <div class="card-dorso">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f98a.svg" alt="Zorro">
+            <h3>Zorro</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="practica" id="practica">
+    <div class="cielo" aria-hidden="true">
+      <img class="nube" src="img/nube-5.png" alt="" style="--w:260px;top:10%;--t:75s;--d:-15s">
+      <img class="nube" src="img/nube-9.png" alt="" style="--w:200px;top:45%;--t:60s;--d:-50s">
+      <img class="nube" src="img/nube-4.png" alt="" style="--w:320px;top:78%;--t:85s;--d:-30s">
+    </div>
+
+    <div class="practica-contenido">
+      <div class="estrellas" data-estrellas="8"></div>
+      <h2 data-anim>Practiquemos lo que aprendiste</h2>
+      <p class="instruccion revela">Dale play y elige una tarjeta. Tendrás que completar la letra con la que empieza, por ejemplo: <strong>E de Elefante</strong>.</p>
+
+      <button class="boton-play revela" id="boton-play" onclick="empezarPractica()">
+        <span>Play</span>
+        <img src="img/alaska-play.png" alt="Alaska saltando de alegría">
+      </button>
+
+      <div class="mesa" id="mesa"></div>
+
+      <div class="reto oculto" id="reto">
+        <img id="reto-imagen" src="" alt="">
+        <p class="reto-frase"><span id="reto-hueco">_</span> de <strong id="reto-palabra"></strong></p>
+        <div class="opciones" id="reto-opciones"></div>
+        <p class="reto-mensaje" id="reto-mensaje"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="equipo" id="equipo">
+    <div class="cielo" aria-hidden="true">
+      <img class="nube" src="img/nube-2.png" alt="" style="--w:240px;top:10%;--t:80s;--d:-20s">
+      <img class="nube" src="img/nube-6.png" alt="" style="--w:180px;top:60%;--t:65s;--d:-50s">
+      <img class="nube" src="img/nube-8.png" alt="" style="--w:260px;top:80%;--t:95s;--d:-70s">
+    </div>
+    <div class="equipo-contenido">
+    <h2 data-anim>El equipo</h2>
+    <ul class="integrantes">
+      <li>
+        <div class="tarjeta-equipo revela"><img src="img/nicole-personaje.png" alt="Nicole Betancourt"></div>
+        <p class="nombre revela"><strong>Nicole Betancourt</strong><span>Desarrolladora</span></p>
+      </li>
+      <li>
+        <div class="tarjeta-equipo tarjeta-mascota revela"><img src="img/alaska-personaje.png" alt="Alaska, la husky de Letraska"></div>
+        <p class="nombre revela"><strong>Alaska</strong><span>Mascota oficial</span></p>
+      </li>
+    </ul>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-cielo">
+    <div class="cielo" aria-hidden="true">
+      <img class="nube" src="img/nube-1.png" alt="" style="--w:220px;top:8%;--t:75s;--d:-10s">
+      <img class="nube" src="img/nube-5.png" alt="" style="--w:170px;top:55%;--t:60s;--d:-40s">
+    </div>
+    <div class="footer-contenido">
+      <div class="banner revela"><span>¡Es hora de Letraska!</span></div>
+
+      <div class="footer-info revela">
+        <div class="footer-hecho">
+          <h3>Hecho por</h3>
+          <p>Nicole Betancourt</p>
+          <p class="pequeno">Generation Colombia</p>
+        </div>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#letras">Letras</a></li>
+          <li><a href="#practica">Práctica</a></li>
+        </ul>
+        <ul>
+          <li><a href="#equipo">El equipo</a></li>
+          <li>Mascota: Alaska</li>
+          <li>ABC Challenge</li>
+        </ul>
+        <ul>
+          <li>Laboratorio grupal</li>
+          <li>HTML · CSS · JavaScript</li>
+          <li>Hecho en Colombia</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div class="footer-escena">
+      <img class="escena" src="img/escena.svg" alt="">
+      <div class="mariposa m1"><div class="m-vuelo"><img src="img/mariposa-naranja.png" alt=""></div></div>
+      <div class="mariposa m2"><div class="m-vuelo"><img src="img/mariposa-amarilla.png" alt=""></div></div>
+      <div class="alaska alaska-despedida sinflip revela">
+      <div class="alaska-flip">
+        <div class="alaska-saltito">
+          <img class="a-cuerpo" src="img/alaska-cuerpo.png" alt="Alaska, la husky de Letraska">
+          <div class="a-cola"></div>
+          <div class="a-mano"></div>
+        </div>
+      </div>
+    </div>
+      <div class="nicole revela">
+        <div class="nicole-vaiven">
+          <img class="n-cuerpo" src="img/nicole-cuerpo.png" alt="Nicole, creadora de Letraska">
+          <div class="n-mano"></div>
+        </div>
+      </div>
+      <a class="subir" href="#inicio" aria-label="Volver arriba">↑</a>
+    </div>
+
+    <div class="footer-barra revela">
+      <a class="logo" aria-label="Letraska"><span>L</span><span>e</span><span>t</span><span>r</span><span>a</span><span>s</span><span>k</span><span>a</span></a>
+      <p>Made with <span class="amor">&#10084;</span> by Letraska</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

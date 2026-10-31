@@ -1,0 +1,1028 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: url('img/hueso.png') 22 22, auto;
+}
+
+a,
+button,
+.card,
+.card *,
+.carta,
+.carta * {
+  cursor: url('img/hueso.png') 22 22, pointer;
+}
+
+:root {
+  --cielo: #2f97ff;
+  --naranja: #ff7a2f;
+  --morado: #a45be6;
+  --rosa: #ff5fa8;
+  --verde: #4cc426;
+  --azul-logo: #1e6fd9;
+  --tinta: #0f0f0f;
+  --concrete: #f3f3f3;
+  --papumba: #ff9c00;
+  --flamingo: #f5663e;
+  --flamingo-shadow: #e94b1f;
+  --amethyst: #d366e0;
+  --amethyst-shadow: #b034be;
+  --lavender-rose: #fea4e2;
+  --lavender-rose-shadow: #e57bc4;
+  --yellow-green: #68dc18;
+  --yellow-green-shadow: #54c332;
+  --malibu: #73bcf3;
+  --malibu-shadow: #4498d7;
+  --alto: #d7d7d7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--tinta);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* ---------- Logo (wordmark) ---------- */
+.logo {
+  display: inline-block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.logo span {
+  display: inline-block;
+  color: #fff;
+  -webkit-text-stroke: 7px var(--azul-logo);
+  paint-order: stroke fill;
+  text-shadow: 0 4px 0 var(--azul-logo);
+}
+
+.logo span:nth-child(odd) { transform: rotate(-4deg) translateY(1px); }
+.logo span:nth-child(even) { transform: rotate(3deg) translateY(-2px); }
+.logo span:nth-child(3) { color: #ffc93c; }
+.logo span:nth-child(7) { color: #ff9a3d; }
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+}
+
+.menu {
+  display: flex;
+  gap: 6px;
+  background: #f3f3f3;
+  padding: 12px 22px;
+  border-radius: 999px;
+}
+
+.menu a {
+  color: var(--tinta);
+  font-weight: 500;
+  font-size: 1.05rem;
+  text-decoration: none;
+  padding: 0 14px;
+}
+
+.menu a:hover,
+.menu a.activo {
+  color: #f09a12;
+}
+
+.progreso {
+  background: var(--tinta);
+  color: #fff;
+  font-weight: 500;
+  padding: 13px 26px;
+  border-radius: 999px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px 24px 0;
+  background: linear-gradient(#2f97ff, #7fbfff 70%, #a8d6ff);
+  overflow: hidden;
+}
+
+.hero-contenido {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.subtitulo {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 26px 0;
+}
+
+.boton-negro {
+  display: inline-block;
+  background: var(--tinta);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 15px 34px;
+  border-radius: 999px;
+}
+
+.hero .escena {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 62vh;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.corazon {
+  position: absolute;
+  right: 12vw;
+  bottom: calc(4vw + 28vw);
+  width: 46px;
+  z-index: 3;
+  animation: flotar-corazon 3s ease-in-out infinite;
+}
+
+@keyframes flotar-corazon {
+  50% { transform: translateY(-14px) rotate(6deg); }
+}
+
+/* ---------- Alaska (imagen en capas: cuerpo, cola y manita) ---------- */
+.alaska {
+  position: absolute;
+  z-index: 3;
+  width: var(--ancho);
+}
+
+.alaska-hero {
+  --ancho: clamp(170px, 18vw, 280px);
+  right: 8vw;
+  bottom: 4vw;
+}
+
+.alaska-despedida {
+  --ancho: clamp(150px, 22vw, 340px);
+  left: 29%;
+  bottom: 7%;
+}
+
+.sinflip .alaska-flip {
+  transform: none;
+}
+
+.sombra {
+  position: absolute;
+  bottom: 0;
+}
+
+.nicole {
+  position: absolute;
+  z-index: 3;
+  left: 53%;
+  bottom: 6%;
+  width: clamp(130px, 18vw, 270px);
+}
+
+.nicole-vaiven {
+  position: relative;
+  transform-origin: 50% 100%;
+  animation: balanceo 3.5s ease-in-out infinite;
+}
+
+.nicole img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes balanceo {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+.alaska-flip {
+  transform: scaleX(-1);
+}
+
+.alaska-saltito {
+  position: relative;
+  animation: saltito 1.8s ease-in-out infinite;
+}
+
+.alaska img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes saltito {
+  50% { transform: translateY(-8px); }
+}
+
+/* ---------- Estrellitas ✨ ---------- */
+.estrellas {
+  position: absolute;
+  inset: -50px -70px;
+  pointer-events: none;
+}
+
+.estrella {
+  position: absolute;
+  font-size: var(--s);
+  line-height: 1;
+  opacity: 0;
+  animation: brillar var(--d) ease-in-out infinite;
+  animation-delay: var(--r);
+}
+
+@keyframes brillar {
+  0%, 100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(20deg); }
+}
+
+/* ---------- Animación del texto (letra por letra) ---------- */
+.palabra {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.letra-anim {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.visible .letra-anim {
+  animation: subir 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  animation-delay: calc(var(--i) * 50ms);
+}
+
+@keyframes subir {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Cielo con nubes que se mueven ---------- */
+.letras,
+.practica {
+  position: relative;
+  padding: 110px 24px 100px;
+  overflow: hidden;
+}
+
+.letras {
+  background: linear-gradient(#2f97ff, #a9d3ff 55%, #d6ebff);
+}
+
+.practica {
+  background: linear-gradient(#bfe0ff, #5eadff 40%, #2f97ff);
+  text-align: center;
+}
+
+.cielo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.nube {
+  position: absolute;
+  left: -420px;
+  width: var(--w);
+  height: auto;
+  animation: pasar var(--t) linear infinite;
+  animation-delay: var(--d);
+}
+
+@keyframes pasar {
+  to { transform: translateX(calc(100vw + 900px)); }
+}
+
+.letras-contenido,
+.practica-contenido {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.letras h2,
+.practica h2,
+.equipo h2 {
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 32px 0 40px;
+}
+
+.filtros button {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 11px 28px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--tinta);
+}
+
+.filtros button.activo {
+  background: var(--tinta);
+  color: #fff;
+}
+
+/* ---------- Cards con efecto flip ---------- */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 22px;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  height: 210px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.volteada {
+  transform: rotateY(180deg);
+}
+
+.card-frente,
+.card-dorso {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  backface-visibility: hidden;
+  box-shadow: 0 8px 20px rgba(0, 60, 130, 0.25);
+}
+
+.card-frente {
+  perspective: 600px;
+  background: var(--naranja);
+}
+
+.card-dorso {
+  background: #fff;
+  box-shadow: 0 8px 0 var(--alto);
+  transform: rotateY(180deg);
+  gap: 10px;
+}
+
+.card-dorso img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+
+.card:first-child .card-dorso img {
+  height: 120px;
+  width: auto;
+}
+
+.card-dorso h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.card:nth-child(5n + 1) .card-frente { background: var(--flamingo); box-shadow: 0 8px 0 var(--flamingo-shadow); }
+.card:nth-child(5n + 2) .card-frente { background: var(--malibu); box-shadow: 0 8px 0 var(--malibu-shadow); }
+.card:nth-child(5n + 3) .card-frente { background: var(--amethyst); box-shadow: 0 8px 0 var(--amethyst-shadow); }
+.card:nth-child(5n + 4) .card-frente { background: var(--yellow-green); box-shadow: 0 8px 0 var(--yellow-green-shadow); }
+.card:nth-child(5n + 5) .card-frente { background: var(--lavender-rose); box-shadow: 0 8px 0 var(--lavender-rose-shadow); }
+
+/* Letra flotante: 3 capas (atrás, medio y frente) que se mueven en 3D */
+.card-frente h1,
+.card-frente h1::before,
+.card-frente h1::after {
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -4px;
+  color: transparent;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, #fff 35%, rgba(255, 255, 255, 0.85) 60%, rgba(255, 255, 255, 0.45) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+}
+
+.card-frente h1 {
+  position: relative;
+  font-size: 6.2rem;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3));
+  animation: flotar 6.2s ease-in-out infinite;
+}
+
+.card-frente h1::before,
+.card-frente h1::after {
+  content: attr(data-letra);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.card-frente h1::before {
+  opacity: 0.2;
+  filter: blur(1px);
+  transform: translateZ(-70px);
+}
+
+.card-frente h1::after {
+  opacity: 0.45;
+  transform: translateZ(-34px);
+}
+
+.card:nth-child(3n) .card-frente h1 { animation-delay: -2s; }
+.card:nth-child(3n + 1) .card-frente h1 { animation-delay: -4s; }
+
+@keyframes flotar {
+  0%, 100% { transform: rotateX(16deg) rotateY(-18deg); }
+  50% { transform: rotateX(18deg) rotateY(18deg); }
+}
+
+/* ---------- Práctica ---------- */
+.instruccion {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  max-width: 640px;
+  margin: 20px auto 0;
+}
+
+.boton-play {
+  position: relative;
+  margin: 120px 0 50px 60px;
+  padding: 22px 120px 22px 60px;
+  border: none;
+  border-radius: 999px;
+  background: var(--flamingo);
+  box-shadow: 0 8px 0 var(--flamingo-shadow);
+  font-family: inherit;
+}
+
+.boton-play span {
+  color: #fff;
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.boton-play img {
+  position: absolute;
+  right: -70px;
+  bottom: -14px;
+  height: 190px;
+  animation: saltito 1.6s ease-in-out infinite;
+}
+
+.boton-play:active {
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 var(--flamingo-shadow);
+}
+
+.mesa {
+  position: relative;
+  width: min(760px, 100%);
+  height: 270px;
+  margin: 0 auto;
+}
+
+.carta {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 170px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.32);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.carta img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.carta.elegida {
+  outline: 5px solid #ffd23f;
+}
+
+.carta.lista {
+  opacity: 0.6;
+}
+
+.carta.lista::after {
+  content: '✓';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--verde);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.reto {
+  max-width: 520px;
+  margin: 30px auto 0;
+  padding: 26px;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.3);
+}
+
+.reto img {
+  height: 110px;
+  object-fit: contain;
+}
+
+.reto-frase {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin: 10px 0 18px;
+}
+
+#reto-hueco {
+  display: inline-block;
+  min-width: 64px;
+  border-bottom: 5px dashed var(--naranja);
+  color: var(--naranja);
+}
+
+.opciones {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.opciones button {
+  width: 66px;
+  height: 66px;
+  border: none;
+  border-radius: 50%;
+  background: #eaf4ff;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--tinta);
+}
+
+.opciones button.error {
+  background: #ffd6d6;
+  animation: temblar 0.4s;
+}
+
+.opciones button.correcta {
+  background: var(--verde);
+  color: #fff;
+}
+
+@keyframes temblar {
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.reto-mensaje {
+  min-height: 1.6em;
+  margin-top: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.reto-mensaje button {
+  margin-left: 8px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 999px;
+  background: var(--naranja);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ---------- Equipo ---------- */
+.equipo {
+  padding: 100px 24px 110px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#2f97ff, #4aa8ff);
+  text-align: center;
+}
+
+.integrantes {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin: 32px 0 24px;
+}
+
+.tarjeta-equipo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 260px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 36px;
+  background: #fbe05d;
+  box-shadow: 0 8px 0 #e4ae0d;
+}
+
+.tarjeta-equipo img {
+  height: 92%;
+}
+
+.nombre {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.mascota {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--cielo);
+}
+
+.footer-nubes-viejo {
+  display: block;
+  width: 100%;
+  height: clamp(60px, 9vw, 130px);
+  margin-bottom: -1px;
+}
+
+.footer-cielo {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 6vw 70px;
+  background: linear-gradient(#4aa8ff, #8cc6ff);
+  color: #fff;
+}
+
+.equipo-contenido,
+.footer-contenido {
+  position: relative;
+  z-index: 2;
+}
+
+.banner {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.banner span {
+  display: inline-block;
+  padding: 8px 36px;
+  background: var(--papumba);
+  font-size: clamp(1.8rem, 5vw, 3.4rem);
+  font-weight: 700;
+  transform: rotate(-2deg);
+}
+
+.footer-info {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-hecho h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.footer-hecho p {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+.footer-hecho .pequeno {
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+.footer-info ul {
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 2.2;
+}
+
+.footer-info a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+.footer-escena {
+  position: relative;
+  background: linear-gradient(#8cc6ff, #a8d6ff);
+  overflow: hidden;
+}
+
+.footer-escena .escena {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.subir {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 4;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--tinta);
+  color: #fff;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.footer-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 6vw;
+  background: #fff;
+}
+
+.footer-barra .logo {
+  font-size: 1.9rem;
+}
+
+.footer-barra p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.amor {
+  color: var(--naranja);
+  font-size: 1.5rem;
+}
+
+/* Mariposas que van y vienen */
+.mariposa {
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  width: 56px;
+  animation: ir-venir var(--t) ease-in-out infinite alternate;
+  animation-delay: var(--d);
+}
+
+.m1 { top: 12%; --t: 14s; --d: 0s; width: 74px; }
+.m2 { top: 34%; --t: 19s; --d: -7s; width: 62px; }
+.m2 .m-vuelo { animation-name: girar-inversa; }
+
+.m-vuelo {
+  animation: girar calc(var(--t) * 2) linear infinite;
+  animation-delay: var(--d);
+}
+
+.mariposa img {
+  display: block;
+  width: 100%;
+  animation: aletear 0.25s ease-in-out infinite alternate, ondular 3s ease-in-out infinite;
+}
+
+@keyframes ir-venir {
+  to { transform: translateX(calc(100vw - 80px)); }
+}
+
+@keyframes girar {
+  0%, 49.9% { transform: scaleX(1); }
+  50%, 100% { transform: scaleX(-1); }
+}
+
+@keyframes aletear {
+  from { transform: rotate(-7deg) scale(1); }
+  to { transform: rotate(7deg) scale(0.92, 1); }
+}
+
+@keyframes girar-inversa {
+  0%, 49.9% { transform: scaleX(-1); }
+  50%, 100% { transform: scaleX(1); }
+}
+
+@keyframes ondular {
+  50% { translate: 0 -18px; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .menu { display: none; }
+  .navbar { padding: 12px 16px; }
+  .logo { font-size: 1.7rem; }
+  .progreso { padding: 10px 16px; font-size: 0.85rem; }
+  .hero { padding-bottom: 260px; }
+  .alaska-hero { right: 50%; transform: translateX(50%); bottom: 6vw; }
+  .corazon { display: none; }
+  .boton-play { margin-left: 30px; padding: 18px 90px 18px 40px; }
+  .boton-play img { height: 170px; right: -55px; }
+  .footer-info { grid-template-columns: 1fr 1fr; }
+  .footer-barra { flex-direction: column; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .letra-anim { opacity: 1; transform: none; }
+}
+
+/* ---------- Aparición suave al hacer scroll ---------- */
+.revela {
+  opacity: 0;
+  translate: 0 40px;
+  transition: opacity 1s ease, translate 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--retraso, 0s);
+}
+
+.card.revela {
+  transition: transform 0.6s, opacity 1s ease, translate 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: 0s, var(--retraso, 0s), var(--retraso, 0s);
+}
+
+.revela.entra {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revela { opacity: 1; translate: none; }
+}
+
+/* ---------- Cola, brazo y mano: piezas sueltas que giran desde su articulación ---------- */
+/* Cada pieza tiene el mismo tamaño que el cuerpo, así encajan sin calcular posiciones. */
+.a-cuerpo,
+.n-cuerpo {
+  position: relative;
+  z-index: 1;
+}
+
+.a-mano,
+.a-cola,
+.n-mano {
+  position: absolute;
+  inset: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+/* La cola y el brazo de Alaska van detrás del cuerpo: nacen bajo la mochila y la correa. */
+.a-cola {
+  z-index: 0;
+  background-image: url('img/alaska-cola.png');
+  transform-origin: 26.79% 79.11%;
+  animation: mover-cola 0.35s ease-in-out infinite alternate;
+}
+
+.a-mano {
+  z-index: 0;
+  background-image: url('img/alaska-mano.png');
+  transform-origin: 72.32% 68.36%;
+  animation: saludar 0.45s ease-in-out infinite alternate;
+}
+
+/* La mano de Nicole va delante: gira desde la muñeca. */
+.n-mano {
+  z-index: 2;
+  background-image: url('img/nicole-mano.png');
+  transform-origin: 13.44% 48.02%;
+  animation: saludar-nicole 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes mover-cola {
+  from { transform: rotate(-7deg); }
+  to { transform: rotate(9deg); }
+}
+
+@keyframes saludar {
+  from { transform: rotate(-8deg); }
+  to { transform: rotate(7deg); }
+}
+
+@keyframes saludar-nicole {
+  from { transform: rotate(-8deg); }
+  to { transform: rotate(8deg); }
+}
+
+/* ---------- Tarjetas del equipo ---------- */
+.integrantes {
+  gap: 48px;
+}
+
+.integrantes li {
+  text-align: center;
+}
+
+.tarjeta-mascota {
+  background: var(--lavender-rose);
+  box-shadow: 0 8px 0 var(--lavender-rose-shadow);
+}
+
+.tarjeta-mascota img {
+  height: 86%;
+}
+
+.nombre {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 30px;
+  border-radius: 28px;
+}
+
+.nombre span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--flamingo);
+}
